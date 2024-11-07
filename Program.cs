@@ -13,13 +13,6 @@ bool CheckMeteorShowerTime(int seed, int minTime, int maxTime) {
   return minTime <= time && time <= maxTime;
 }
 
-bool CheckMeteorShowerSize(int seed, int minSize, int maxSize) {
-  var random = new Random(seed + 12);
-
-  var size = random.Next(0, 100);
-  return minSize <= size && size <= maxSize;
-}
-
 int seedCount = 0;
 
 while (true) {

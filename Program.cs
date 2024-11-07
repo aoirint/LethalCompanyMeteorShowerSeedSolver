@@ -13,11 +13,7 @@ bool CheckMeteorShowerTime(int seed, int minTime, int maxTime) {
   return minTime <= time && time <= maxTime;
 }
 
-int seedCount = 0;
-
-while (true) {
-  var seed = new Random().Next(1, 100000001);
-
+for (var seed = 0; seed < 100000001; seed++) {
   if (! CheckMeteorShowerChance(seed)) {
     continue;
   }
@@ -27,9 +23,4 @@ while (true) {
   }
 
   Console.WriteLine(seed);
-
-  seedCount += 1;
-  if (seedCount >= 100) {
-    break;
-  }
 }

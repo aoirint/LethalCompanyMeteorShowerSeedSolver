@@ -5,17 +5,19 @@
   return random.Next(0, 1000) < meteorShowerChance;
 }
 
-bool CheckMeteorShowerTime(int seed, int time) {
+bool CheckMeteorShowerTime(int seed, int minTime, int maxTime) {
   var random = new Random(seed + 28);
   random.Next(0, 1000);
 
-  return random.Next(5, 80) == time;
+  var time = random.Next(5, 80);
+  return minTime <= time && time <= maxTime;
 }
 
-bool CheckMeteorShowerSize(int seed, int size) {
+bool CheckMeteorShowerSize(int seed, int minSize, int maxSize) {
   var random = new Random(seed + 12);
 
-  return random.Next(0, 100) == size;
+  var size = random.Next(0, 100);
+  return minSize <= size && size <= maxSize;
 }
 
 int seedCount = 0;
@@ -27,7 +29,7 @@ while (true) {
     continue;
   }
 
-  if (! CheckMeteorShowerTime(seed, 5)) {
+  if (! CheckMeteorShowerTime(seed, 5, 5)) {
     continue;
   }
 

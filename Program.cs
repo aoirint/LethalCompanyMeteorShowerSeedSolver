@@ -12,6 +12,12 @@ bool CheckMeteorShowerTime(int seed, int time) {
   return random.Next(5, 80) == time;
 }
 
+bool CheckMeteorShowerSize(int seed, int size) {
+  var random = new Random(seed + 12);
+
+  return random.Next(0, 100) == size;
+}
+
 int seedCount = 0;
 
 while (true) {

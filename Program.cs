@@ -13,14 +13,17 @@ bool CheckMeteorShowerTime(int seed, int minTime, int maxTime) {
   return minTime <= time && time <= maxTime;
 }
 
+// NOTE: Possible max seed is 100000000.
 for (var seed = 0; seed < 100000001; seed++) {
   if (! CheckMeteorShowerChance(seed)) {
     continue;
   }
 
-  if (! CheckMeteorShowerTime(seed, 5, 5)) {
+  // NOTE: Change minTime, maxTime in [5, 79] to select the time of Meteor shower. e.g. Use minTime=5 maxTime=5 for the start of day.
+  if (! CheckMeteorShowerTime(seed, 5, 79)) {
     continue;
   }
 
   Console.WriteLine(seed);
 }
+
